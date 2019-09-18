@@ -11,3 +11,7 @@ socketio = SocketIO(app)
 @app.route("/")
 def index():
     return "Project 2: TODO"
+
+# if not run like this then SocketIO error is raised
+if __name__ == "__main__":
+    socketio.run(app)
