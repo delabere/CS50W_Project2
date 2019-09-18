@@ -1,10 +1,10 @@
 #chat-window {
-  background-color: green;
+  background-color: #e38786;
   height: 100vh;
 }
 
 #side-menu {
-  background-color: purple;
+  background-color: #7aed74;
   min-width: 200px;
   height: 100vh;
 }
