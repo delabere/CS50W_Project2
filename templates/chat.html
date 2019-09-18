@@ -1,24 +1,65 @@
 {% extends 'base.html' %}
 
-
 {% block page_content %}
 
+<!-- entire page container -->
 <div class="container-fluid">
   <div class="row">
+
+    <!-- left - navigation side of screen -->
     <div class="col-3" id='side-menu'>
-    </div>
 
-
-    <div class="col" id='chat-window'>
-      <div class="row shadow" id='chat-title'>
+      <div class="row shadow" id='nav-top'>
         <div class="col">
-          <h1 class='text-center'>chat-title</h1>
+          <h1 class='text-center'>nav-top</h1>
         </div>
       </div>
-      <div class="row" id='chat-body'> </div>
+
+      <div class="row shadow" id='nav-middle'>
+        <div class="col">
+          <h1 class='text-center'>nav-middle</h1>
+        </div>
+      </div>
+      <div class="row shadow" id='nav-bottom'>
+        <div class="col">
+          <h1 class='text-center'>nav-bottom</h1>
+        </div>
+      </div>
     </div>
+
+
+
+    <!-- right - chat side of screen -->
+    <div class="col" id='chat-window'>
+      <!-- chat header -->
+      <div class="row shadow" id='chat-top'>
+        <div class="col">
+          <h1 class='text-center'>chat-top</h1>
+        </div>
+      </div>
+      <div class="row shadow" id='chat-middle'>
+        <div class="col">
+          <h1 class='text-center'>chat-middle</h1>
+        </div>
+      </div>
+      <div class="row shadow" id='chat-bottom'>
+        <div class="col">
+          <h1 class='text-center'>chat-bottom</h1>
+        </div>
+      </div>
+      <!-- main chat window (messages, gifs etc...) -->
+      <div class="row" id='chat-body'>
+        <div class="col"> </div>
+      </div>
+    </div>
+
+
+
+
 
 
   </div>
 </div>
+
+
 {% endblock %}
