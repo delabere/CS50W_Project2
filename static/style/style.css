@@ -1,36 +1,41 @@
 #chat-window {
-  background-color: #e38786;
-  height: 100vh;
+    background-color: #e38786;
+    height: 100vh;
 }
 
 #side-menu {
-  background-color: #7aed74;
-  min-width: 200px;
-  height: 100vh;
+    background-color: #7aed74;
+    min-width: 200px;
+    height: 100vh;
 }
 
 #nav-top {
-  height: 10%;
+    height: 10%;
 }
 
 #nav-middle {
-  height: 60%;
+    height: 60%;
 }
 
 #nav-bottom {
-  height: 30%;
+    height: 30%;
 }
 
 #chat-top {
-  height: 10%;
+    height: 10%;
 }
 
 #chat-middle {
-  height: 80%;
+    height: 80%;
 }
 
 #chat-bottom {
-  height: 10%;
+    height: 10%;
+}
+
+
+#chat-nav {
+    height: 500px;
 }
 
 /*# sourceMappingURL=style.css.map */
