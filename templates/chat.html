@@ -2,88 +2,115 @@
 
 {% block page_content %}
 
-<!-- entire page container -->
-<div class="container-fluid">
-  <div class="row">
+    <!-- entire page container -->
+    <div class="container-fluid">
+        <div class="row">
 
 
+            <!-- left - navigation side of screen -->
+            <div class="col-3" id='side-menu'>
 
-    <!-- left - navigation side of screen -->
-    <div class="col-3" id='side-menu'>
+                <div class="row border border-dark rounded align-items-center" id='nav-top'>
+                    <div class="col">
+                        <h1 class='text-center'>nav-top</h1>
+                    </div>
+                </div>
+                <!-- area for chatroom selection -->
+                <div class="row border border-dark rounded align-items-center" id='nav-middle'>
+                    <div class="col">
+                        {# Scrollable chat selection window #}
+                        <div class="overflow-auto" id="chat-select">
 
-      <div class="row border border-dark rounded align-items-center" id='nav-top'>
-        <div class="col">
-          <h1 class='text-center'>nav-top</h1>
-        </div>
-      </div>
-      <!-- area for chatroom selection -->
-      <div class="row border border-dark rounded align-items-center" id='nav-middle'>
-        <div class="col">
-          <div class="overflow-auto">
+                            <button type="button" class="btn btn-primary btn-lg btn-block">Block level button</button>
+                            <button type="button" class="btn btn-primary btn-lg btn-block">Block level button</button>
+                            <button type="button" class="btn btn-secondary btn-lg btn-block">Block level button</button>
+                            <button type="button" class="btn btn-primary btn-lg btn-block">Block level button</button>
+                            <button type="button" class="btn btn-secondary btn-lg btn-block">Block level button</button>
+                            <button type="button" class="btn btn-primary btn-lg btn-block">Block level button</button>
+                            <button type="button" class="btn btn-secondary btn-lg btn-block">Block level button</button>
+                            <button type="button" class="btn btn-primary btn-lg btn-block">Block level button</button>
+                            <button type="button" class="btn btn-secondary btn-lg btn-block">Block level button</button>
+                            <button type="button" class="btn btn-secondary btn-lg btn-block">Block level button</button>
+                            <button type="button" class="btn btn-secondary btn-lg btn-block">Block level button</button>
+                            <button type="button" class="btn btn-secondary btn-lg btn-block">Block level button</button>
+                            <button type="button" class="btn btn-primary btn-lg btn-block">Block level button</button>
+                            <button type="button" class="btn btn-secondary btn-lg btn-block">Block level button</button>
+                            <button type="button" class="btn btn-primary btn-lg btn-block">Block level button</button>
+                            <button type="button" class="btn btn-secondary btn-lg btn-block">Block level button</button>
+                            <button type="button" class="btn btn-primary btn-lg btn-block">Block level button</button>
+                            <button type="button" class="btn btn-secondary btn-lg btn-block">Block level button</button>
+                            <button type="button" class="btn btn-primary btn-lg btn-block">Block level button</button>
+                            <button type="button" class="btn btn-secondary btn-lg btn-block">Block level button</button>
+                            <button type="button" class="btn btn-primary btn-lg btn-block">Block level button</button>
+                            <button type="button" class="btn btn-secondary btn-lg btn-block">Block level button</button>
+                            <button type="button" class="btn btn-primary btn-lg btn-block">Block level button</button>
+                            <button type="button" class="btn btn-secondary btn-lg btn-block">Block level button</button>
+                            <button type="button" class="btn btn-primary btn-lg btn-block">Block level button</button>
+                            <button type="button" class="btn btn-secondary btn-lg btn-block">Block level button</button>
+                            <button type="button" class="btn btn-primary btn-lg btn-block">Block level button</button>
+                            <button type="button" class="btn btn-secondary btn-lg btn-block">Block level button</button>
+                            <button type="button" class="btn btn-primary btn-lg btn-block">Block level button</button>
+                            <button type="button" class="btn btn-secondary btn-lg btn-block">Block level button</button>
+                            <button type="button" class="btn btn-primary btn-lg btn-block">Block level button</button>
+                            <button type="button" class="btn btn-secondary btn-lg btn-block">Block level button</button>
+                            <button type="button" class="btn btn-primary btn-lg btn-block">Block level button</button>
+                            <button type="button" class="btn btn-secondary btn-lg btn-block">Block level button</button>
+                            <button type="button" class="btn btn-primary btn-lg btn-block">Block level button</button>
+                            <button type="button" class="btn btn-secondary btn-lg btn-block">Block level button</button>
+                            <button type="button" class="btn btn-primary btn-lg btn-block">Block level button</button>
+                            <button type="button" class="btn btn-secondary btn-lg btn-block">Block level button</button>
+                            <button type="button" class="btn btn-primary btn-lg btn-block">Block level button</button>
+                            <button type="button" class="btn btn-secondary btn-lg btn-block">Block level button</button>
+                            <button type="button" class="btn btn-primary btn-lg btn-block">Block level button</button>
+                            <button type="button" class="btn btn-secondary btn-lg btn-block">Block level button</button>
 
-<button type="button" class="btn btn-primary btn-lg btn-block">Block level button</button>
-<button type="button" class="btn btn-secondary btn-lg btn-block">Block level button</button>
-<button type="button" class="btn btn-primary btn-lg btn-block">Block level button</button>
-<button type="button" class="btn btn-secondary btn-lg btn-block">Block level button</button>
-<button type="button" class="btn btn-primary btn-lg btn-block">Block level button</button>
-<button type="button" class="btn btn-secondary btn-lg btn-block">Block level button</button>
-<button type="button" class="btn btn-primary btn-lg btn-block">Block level button</button>
-<button type="button" class="btn btn-secondary btn-lg btn-block">Block level button</button>
-<button type="button" class="btn btn-primary btn-lg btn-block">Block level button</button>
-<button type="button" class="btn btn-secondary btn-lg btn-block">Block level button</button>
-<button type="button" class="btn btn-primary btn-lg btn-block">Block level button</button>
-<button type="button" class="btn btn-secondary btn-lg btn-block">Block level button</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- area for creating new chatroom -->
+                <div class="row border border-dark rounded align-items-center" id='nav-bottom'>
+                    <div class="col">
+                        <h1 class='text-center'>nav-bottom</h1>
+                    </div>
+                </div>
 
-          </div>
-        </div>
-      </div>
-      <!-- area for creating new chatroom -->
-      <div class="row border border-dark rounded align-items-center" id='nav-bottom'>
-        <div class="col">
-          <h1 class='text-center'>nav-bottom</h1>
-        </div>
-      </div>
-
-    </div>
-
-
-
-    <!-- right - chat side of screen -->
-    <div class="col" id='chat-window'>
-
-      <!-- chat header -->
-      <div class="row border border-dark rounded align-items-center" id='chat-top'>
-        <div class="col">
-          <h1 class='text-center'>chat-top</h1>
-        </div>
-      </div>
-      <!-- main chat window with messages and gifs -->
-      <div class="row border border-dark rounded align-items-center" id='chat-middle'>
-        <div class="col">
-          <h1 class='text-center'>chat-middle</h1>
-        </div>
-      </div>
-      <!-- area to write messages and send -->
-      <div class="row border border-dark rounded align-items-center" id='chat-bottom'>
-        <div class="col">
-          <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="message..." aria-label="Recipient's username" aria-describedby="button-addon2">
-            <div class="input-group-append">
-              <button class="btn btn-outline-secondary" type="button" id="button-addon2">Button</button>
             </div>
-          </div>
+
+
+            <!-- right - chat side of screen -->
+            <div class="col" id='chat-window'>
+
+                <!-- chat header -->
+                <div class="row border border-dark rounded align-items-center" id='chat-top'>
+                    <div class="col">
+                        <h1 class='text-center'>chat-top</h1>
+                    </div>
+                </div>
+                <!-- main chat window with messages and gifs -->
+                <div class="row border border-dark rounded align-items-center" id='chat-middle'>
+                    <div class="col">
+                        <h1 class='text-center'>chat-middle</h1>
+                    </div>
+                </div>
+                <!-- area to write messages and send -->
+                <div class="row border border-dark rounded align-items-center" id='chat-bottom'>
+                    <div class="col">
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" placeholder="message..."
+                                   aria-label="Recipient's username" aria-describedby="button-addon2">
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-secondary" type="button" id="button-addon2">Button
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
         </div>
-      </div>
-
     </div>
-
-
-
-
-
-
-  </div>
-</div>
 
 
 {% endblock %}
