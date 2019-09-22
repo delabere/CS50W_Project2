@@ -15,6 +15,7 @@
 
 #nav-middle {
     height: 60%;
+    overflow: auto;
 }
 
 #nav-bottom {
@@ -35,7 +36,7 @@
 
 
 #chat-nav {
-    height: 500px;
+    /* height: 500px; */
 }
 
 /*# sourceMappingURL=style.css.map */
