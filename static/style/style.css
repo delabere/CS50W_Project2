@@ -1,10 +1,23 @@
+h1 {
+  font-size: 3vw;
+}
+
+h2 {
+  font-size: 2vw;
+}
+
+#main-viewport {
+  height: 100vh;
+  background-color: #58baf9;
+}
+
 #chat-window {
   background-color: #e38786;
   height: 100vh;
 }
 
 #side-menu {
-  background-color: #7aed74;
+  background-color: #58baf9;
   min-width: 200px;
   height: 100vh;
 }

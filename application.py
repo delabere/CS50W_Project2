@@ -12,6 +12,9 @@ socketio = SocketIO(app)
 def index():
     return render_template('chat.html')
 
+@app.route("/home")
+def home():
+    return render_template('home.html')
 
 # if not run like this then SocketIO error is raised
 if __name__ == "__main__":
