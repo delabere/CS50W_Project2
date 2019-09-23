@@ -1,5 +1,5 @@
 h1 {
-  font-size: 1em;
+  font-size: 3vw;
 }
 
 h2 {
@@ -7,7 +7,7 @@ h2 {
 }
 
 #scroll-lists {
-  padding: 0px;
+  padding: 0;
 }
 
 #main-viewport {
