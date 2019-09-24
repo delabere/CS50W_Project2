@@ -56,4 +56,19 @@ h2 {
   height: 10%;
 }
 
+#logo {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+#logo-text {
+  display: inline-block;
+  color: white;
+}
+
+#logo-div {
+  background-color: #e38786;
+  margin-left: 5px;
+}
+
 /*# sourceMappingURL=style.css.map */
