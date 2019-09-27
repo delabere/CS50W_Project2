@@ -19,8 +19,31 @@ document.addEventListener('DOMContentLoaded', () => {
             chat_room = chat.innerText;
             document.querySelector('#chat-title').innerHTML = chat_room;
             document.querySelector('#scroll-list-chat').innerText = '';
-        //   todo: here I need to be able to pull all the data from this chat into the list
+            //   todo: here I need to be able to pull all the data from this chat into the list
+            // initialise new request
+            const request = new XMLHttpRequest();
+            request.open('POST', '/get_history');
 
+            // Callback function for when request completes
+           request.onload = () => {
+
+            // Extract JSON data from request
+            const data = JSON.parse(request.responseText);
+
+            //update the result div
+            if (data.success) {
+                const contents = data;
+            } else {
+            }
+           };
+
+            // Add data to send with request
+            const data = new FormData();
+            data.append('chat_room', chat_room);
+
+            // Send request
+            request.send(data);
+            return false;
         };
     });
     // Connect to websocket

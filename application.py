@@ -1,10 +1,11 @@
 import os
 
-from flask import Flask, render_template, url_for
+from flask import Flask, render_template, url_for, jsonify, request
 from flask_socketio import SocketIO, emit
 import json
 import time
 from pprint import pprint
+
 
 # temporary application data for teting socketio
 messages = ['First message', 'Second message']
@@ -53,7 +54,8 @@ def index():
 
 @app.route("/get_history", methods=['POST'])
 def get_history():
-    pass
+    chat_room = request.form.get("chat_room")
+    return jsonify(messages['rooms'][chat_room])
 
 @socketio.on("send message")
 def vote(data):
