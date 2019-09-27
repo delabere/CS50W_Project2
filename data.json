@@ -1,0 +1,16 @@
+{
+  "users": ["Delabere", "Leng", "George"],
+  "rooms": {
+    "Welcome!": [{
+        "user": "Delabere",
+        "message": "Welcome to this chatroom!",
+        "timestamp": "27/09/2019 11:35"
+      },
+      {
+        "user": "Delabere",
+        "message": "This is going to be a lot of fun...",
+        "timestamp": "27/09/2019 11:36"
+      }
+    ]
+  }
+}

@@ -2,6 +2,11 @@ import os
 
 from flask import Flask, render_template
 from flask_socketio import SocketIO, emit
+import json
+
+with open('data.json', mode='r') as f:
+    data = json.load(f)
+
 
 app = Flask(__name__)
 app.config["SECRET_KEY"] = os.getenv("SECRET_KEY")
