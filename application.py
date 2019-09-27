@@ -4,12 +4,8 @@ from flask import Flask, render_template, url_for
 from flask_socketio import SocketIO, emit
 import json
 
-#temporary application data for teting socketio
+# temporary application data for teting socketio
 messages = ['First message', 'Second message']
-
-
-
-
 
 
 app = Flask(__name__)
