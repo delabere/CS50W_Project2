@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         socket.on('all messages', data => {
             const li = document.createElement('li');
-            alert(data)
+            li.className = 'list-group-item list-group-item-dark d-flex jutify-content-between'
             li.innerHTML = data[data.length-1];
             document.querySelector('#scroll-list-chat').append(li);
         });
