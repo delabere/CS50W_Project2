@@ -51,20 +51,23 @@ def index():
         data = json.load(f)
     return render_template('chat.html', data=data)
 
+@app.route("/get_history", methods=['POST'])
+def get_history():
+    pass
 
 @socketio.on("send message")
 def vote(data):
-    message = data['message']
-    chat_room = data['chat_room']
+    # message = data['message']
+    # chat_room = data['chat_room']
     # messages.append(message)
     # messages['rooms'][chat_room]['user'] = user   # todo: add the user information
-    pprint(messages['rooms'][chat_room])
+    pprint(messages['rooms'][data['chat_room']])
     record = {
         "user": "Delabere",  # todo: hardcoded user for now
         "message": data['message'],
         "timestamp": time.strftime('%d/%m/%Y %T')
     }
-    messages['rooms'][chat_room].append(record)
+    messages['rooms'][data['chat_room']].append(record)
     emit("all messages", record, broadcast=True)
 
 

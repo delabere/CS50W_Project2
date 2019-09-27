@@ -18,6 +18,9 @@ document.addEventListener('DOMContentLoaded', () => {
         chat.onclick = () => {
             chat_room = chat.innerText;
             document.querySelector('#chat-title').innerHTML = chat_room;
+            document.querySelector('#scroll-list-chat').innerText = '';
+        //   todo: here I need to be able to pull all the data from this chat into the list
+
         };
     });
     // Connect to websocket
@@ -39,9 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
         socket.on('all messages', data => {
             const li = document.createElement('li');
             li.className = 'list-group-item list-group-item-dark d-flex justify-content-between';
-            // li.innerHTML = `<b>${data['user']}:</b> ${data['message']} <small>${data['timestamp']}</small>`;
-            li.innerHTML = `${data['user']}: ${data['message']} <small>${data['timestamp']}</small>`;
-
+            li.innerHTML = `<span><b>${data['user']}:</b> ${data['message']}</span> <small>${data['timestamp']}</small>`;
             document.querySelector('#scroll-list-chat').append(li);
         });
 
