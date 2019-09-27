@@ -25,17 +25,23 @@ document.addEventListener('DOMContentLoaded', () => {
             request.open('POST', '/get_history');
 
             // Callback function for when request completes
-           request.onload = () => {
+            request.onload = () => {
 
-            // Extract JSON data from request
-            const data = JSON.parse(request.responseText);
+                // Extract JSON data from request
+                const data = JSON.parse(request.responseText);
+                console.log(data)
 
-            //update the result div
-            if (data.success) {
-                const contents = data;
-            } else {
-            }
-           };
+                //update the result div
+                    const contents = data;
+                    console.log('kakajh')
+                    // Populate last 100 messages
+                    contents.forEach((data) => {
+                        const li = document.createElement('li');
+                        li.className = 'list-group-item list-group-item-dark d-flex justify-content-between';
+                        li.innerHTML = `<span><b>${data['user']}:</b> ${data['message']}</span> <small>${data['timestamp']}</small>`;
+                        document.querySelector('#scroll-list-chat').append(li);
+                    });
+            };
 
             // Add data to send with request
             const data = new FormData();
@@ -44,6 +50,8 @@ document.addEventListener('DOMContentLoaded', () => {
             // Send request
             request.send(data);
             return false;
+
+
         };
     });
     // Connect to websocket
