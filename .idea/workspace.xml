@@ -4,7 +4,7 @@
     <list default="true" id="fc280282-334e-4747-9fef-3c6be9ce7bbf" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application.py" beforeDir="false" afterPath="$PROJECT_DIR$/application.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/data.json" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -116,7 +116,7 @@
       <workItem from="1569603190270" duration="85000" />
       <workItem from="1569603289251" duration="56000" />
       <workItem from="1569603353327" duration="202000" />
-      <workItem from="1569603564030" duration="16970000" />
+      <workItem from="1569603564030" duration="17502000" />
     </task>
     <task id="LOCAL-00001" summary="formatting">
       <created>1569602711051</created>
@@ -195,7 +195,14 @@
       <option name="project" value="LOCAL" />
       <updated>1569625717441</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="socket messages no longer visible outside of your own chat">
+      <created>1569626446435</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1569626446435</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -226,9 +233,10 @@
     <MESSAGE value="username now appears bold in chat" />
     <MESSAGE value="ajax request being made to get_history view and passing response to frontent" />
     <MESSAGE value="messages being stored in server memory and recallable when changing back to chat" />
-    <option name="LAST_COMMIT_MESSAGE" value="messages being stored in server memory and recallable when changing back to chat" />
+    <MESSAGE value="socket messages no longer visible outside of your own chat" />
+    <option name="LAST_COMMIT_MESSAGE" value="socket messages no longer visible outside of your own chat" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/CS50W_Project2$Flask.coverage" NAME="Flask Coverage Results" MODIFIED="1569626181353" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/CS50W_Project2$Flask.coverage" NAME="Flask Coverage Results" MODIFIED="1569626633372" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
   </component>
 </project>

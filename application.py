@@ -6,10 +6,6 @@ import json
 import time
 from pprint import pprint
 
-
-# temporary application data for teting socketio
-messages = ['First message', 'Second message']
-
 # temporary application data with more detail{
 
 messages = {
@@ -26,7 +22,7 @@ messages = {
                 "timestamp": "27/09/2019 11:36"
             }
         ],
-        "test_1": [{
+        "Channel 2": [{
             "user": "Delabere",
             "message": "test message",
             "timestamp": "27/09/2019 11:35"
