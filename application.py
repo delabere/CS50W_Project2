@@ -1,6 +1,6 @@
 import os
 
-from flask import Flask, render_template
+from flask import Flask, render_template, url_for
 from flask_socketio import SocketIO, emit
 import json
 
@@ -15,8 +15,8 @@ socketio = SocketIO(app)
 def home():
     return render_template('start.html')
 
-@app.route("/")
-@app.route("/chat")
+@app.route("/", methods=['GET', 'POST'])
+@app.route("/chat", methods=['GET', 'POST'])
 def index():
     with open('data.json', mode='r') as f:
         data = json.load(f)
