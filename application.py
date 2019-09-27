@@ -22,6 +22,11 @@ def index():
         data = json.load(f)
     return render_template('chat.html', data=data)
 
+@socketio.on("submit message")
+def vote(data):
+    message = data["message"]
+    emit("post message", {"message": message}, broadcast=True)
+
 # if not run like this then SocketIO error is raised
 if __name__ == "__main__":
     socketio.run(app)
