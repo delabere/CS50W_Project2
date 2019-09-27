@@ -22,10 +22,17 @@ document.addEventListener('DOMContentLoaded', () => {
         // when the form is submitted - do the below
         document.querySelector('#form').onsubmit = () => {
             const message = document.querySelector('#message').value;
-            alert(message);
+            socket.emit('send message', {'message': message});
 
             return false
-        }
+        };
 
-    })
+        socket.on('all messages', data => {
+            const li = document.createElement('li');
+            alert(data)
+            li.innerHTML = data[data.length-1];
+            document.querySelector('#scroll-list-chat').append(li);
+        });
+
     });
+});

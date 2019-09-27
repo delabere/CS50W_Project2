@@ -117,7 +117,7 @@
       <workItem from="1569603190270" duration="85000" />
       <workItem from="1569603289251" duration="56000" />
       <workItem from="1569603353327" duration="202000" />
-      <workItem from="1569603564030" duration="2178000" />
+      <workItem from="1569603564030" duration="3894000" />
     </task>
     <task id="LOCAL-00001" summary="formatting">
       <created>1569602711051</created>
@@ -126,7 +126,14 @@
       <option name="project" value="LOCAL" />
       <updated>1569602711051</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="message now post as an alert - working on adding it to flask variable">
+      <created>1569605788323</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1569605788323</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -147,9 +154,10 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="formatting" />
-    <option name="LAST_COMMIT_MESSAGE" value="formatting" />
+    <MESSAGE value="message now post as an alert - working on adding it to flask variable" />
+    <option name="LAST_COMMIT_MESSAGE" value="message now post as an alert - working on adding it to flask variable" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/CS50W_Project2$Flask.coverage" NAME="Flask Coverage Results" MODIFIED="1569605756499" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/CS50W_Project2$Flask.coverage" NAME="Flask Coverage Results" MODIFIED="1569607495448" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
   </component>
 </project>

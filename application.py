@@ -29,11 +29,12 @@ def index():
     return render_template('chat.html', data=data)
 
 
-@socketio.on("submit vote")
+@socketio.on("send message")
 def vote(data):
     message = data["message"]
     messages.append(message)
-    emit("send message", messages, broadcast=True)
+    print(messages)
+    emit("all messages", messages, broadcast=True)
 
 
 # if not run like this then SocketIO error is raised
