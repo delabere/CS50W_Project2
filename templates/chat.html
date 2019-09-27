@@ -143,12 +143,15 @@
       <!-- area to write messages and send -->
       <div class="row border border-dark rounded align-items-center" id='chat-bottom'>
         <div class="col">
+
+          <form id="form">
           <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="message..." aria-label="Recipient's username" aria-describedby="button-addon2">
+            <input id="message" type="text" class="form-control" name="message" placeholder="message..." aria-label="Recipient's username" aria-describedby="button-addon2">
             <div class="input-group-append">
-              <button class="btn btn-raised btn-info" type="button" id="button-addon2">Send</button>
+              <button class="btn btn-raised btn-info" type="submit" id="button-addon2">Send</button>
             </div>
           </div>
+          </form>
         </div>
       </div>
 
@@ -157,5 +160,4 @@
 
   </div>
 </div>
-
 {% endblock %}

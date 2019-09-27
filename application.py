@@ -4,6 +4,12 @@ from flask import Flask, render_template, url_for
 from flask_socketio import SocketIO, emit
 import json
 
+#temporary application data for teting socketio
+messages = ['First message', 'Second message']
+
+
+
+
 
 
 app = Flask(__name__)
@@ -22,10 +28,13 @@ def index():
         data = json.load(f)
     return render_template('chat.html', data=data)
 
-@socketio.on("submit message")
+
+@socketio.on("submit vote")
 def vote(data):
     message = data["message"]
-    emit("post message", {"message": message}, broadcast=True)
+    messages.append(message)
+    emit("send message", messages, broadcast=True)
+
 
 # if not run like this then SocketIO error is raised
 if __name__ == "__main__":
