@@ -20,19 +20,14 @@
 
       // Have each button change the color of the heading
       document.querySelectorAll('#chat-selector').forEach(function(chat) {
-        chat.onclick = title_change
+        chat.onclick = function() {
+          title = chat.innerHTML;
+      document.querySelector('#chat-title').innerHTML = title;
+        };
       });
 
     });
 
-    // document.addEventListener('DOMContentLoaded', function() {
-    //   document.querySelector('#chat-selector').onclick = title_change;
-    // });
-
-
-    function title_change() {
-      document.querySelector('#chat-title').innerHTML = 'Welcome!';
-    }
   </script>
 
 
