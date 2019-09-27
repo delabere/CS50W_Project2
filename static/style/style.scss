@@ -1,0 +1,75 @@
+h1 {
+  font-size: 3vw;
+}
+
+h2 {
+  font-size: 2vw;
+}
+
+#scroll-lists {
+  padding: 0;
+}
+
+#main-viewport {
+  height: 100vh;
+  background-color: #58baf9;
+}
+
+#chat-window {
+  background-color: #e38786;
+  height: 100vh;
+}
+
+#chat-title {}
+
+#chat-window {}
+
+#side-menu {
+  background-color: #58baf9;
+  min-width: 200px;
+  height: 100vh;
+}
+
+#nav-top {
+  height: 10%;
+}
+
+#nav-middle {
+  height: 50%;
+  overflow: auto;
+}
+
+#nav-middle-header {
+  height: 10%;
+}
+
+#nav-bottom {
+  height: 30%;
+}
+
+#chat-top {
+  height: 10%;
+}
+
+#chat-middle {
+  height: 80%;
+  overflow: auto;
+}
+
+#chat-bottom {
+  height: 10%;
+}
+
+#logo {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+#logo-text {
+  display: inline-block;
+  color: white;
+}
+#logo-div{
+  background-color:#e38786 ;
+  margin-left: 5px;
+}
