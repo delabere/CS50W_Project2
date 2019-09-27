@@ -3,9 +3,36 @@ import os
 from flask import Flask, render_template, url_for
 from flask_socketio import SocketIO, emit
 import json
+import time
+from pprint import pprint
 
 # temporary application data for teting socketio
 messages = ['First message', 'Second message']
+
+# temporary application data with more detail{
+
+messages = {
+    "users": ["Delabere", "Leng", "George"],
+    "rooms": {
+        "Welcome!": [{
+            "user": "Delabere",
+            "message": "Welcome to this chatroom!",
+            "timestamp": "27/09/2019 11:35"
+        },
+            {
+                "user": "Delabere",
+                "message": "This is going to be a lot of fun...",
+                "timestamp": "27/09/2019 11:36"
+            }
+        ],
+        "test_1": [{
+            "user": "Delabere",
+            "message": "test message",
+            "timestamp": "27/09/2019 11:35"
+        }]
+    }
+}
+
 
 
 app = Flask(__name__)
@@ -27,10 +54,18 @@ def index():
 
 @socketio.on("send message")
 def vote(data):
-    message = data["message"]
-    messages.append(message)
-    print(messages)
-    emit("all messages", messages, broadcast=True)
+    message = data['message']
+    chat_room = data['chat_room']
+    # messages.append(message)
+    # messages['rooms'][chat_room]['user'] = user   # todo: add the user information
+    pprint(messages['rooms'][chat_room])
+    record = {
+        "user": "Delabere",  # todo: hardcoded user for now
+        "message": data['message'],
+        "timestamp": time.strftime('%d/%m/%Y %T')
+    }
+    messages['rooms'][chat_room].append(record)
+    emit("all messages", record, broadcast=True)
 
 
 # if not run like this then SocketIO error is raised
