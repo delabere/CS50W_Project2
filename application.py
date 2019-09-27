@@ -70,6 +70,7 @@ def vote(data):
         "timestamp": time.strftime('%d/%m/%Y %T')
     }
     messages['rooms'][data['chat_room']].append(record)
+    record['chat_room'] = data['chat_room']
     emit("all messages", record, broadcast=True)
 
 

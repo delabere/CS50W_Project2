@@ -32,15 +32,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 console.log(data)
 
                 //update the result div
-                    const contents = data;
-                    console.log('kakajh')
-                    // Populate last 100 messages
-                    contents.forEach((data) => {
-                        const li = document.createElement('li');
-                        li.className = 'list-group-item list-group-item-dark d-flex justify-content-between';
-                        li.innerHTML = `<span><b>${data['user']}:</b> ${data['message']}</span> <small>${data['timestamp']}</small>`;
-                        document.querySelector('#scroll-list-chat').append(li);
-                    });
+                // Populate last 100 messages todo: add limit to 100
+                data.forEach((message) => {
+                    const li = document.createElement('li');
+                    li.className = 'list-group-item list-group-item-dark d-flex justify-content-between';
+                    li.innerHTML = `<span><b>${message['user']}:</b> ${message['message']}</span> <small>${message['timestamp']}</small>`;
+                    document.querySelector('#scroll-list-chat').append(li);
+                });
             };
 
             // Add data to send with request
@@ -71,10 +69,12 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         socket.on('all messages', data => {
+            if(data['chat_room'] === chat_room){
             const li = document.createElement('li');
             li.className = 'list-group-item list-group-item-dark d-flex justify-content-between';
             li.innerHTML = `<span><b>${data['user']}:</b> ${data['message']}</span> <small>${data['timestamp']}</small>`;
             document.querySelector('#scroll-list-chat').append(li);
+            }
         });
 
     });
