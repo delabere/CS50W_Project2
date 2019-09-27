@@ -39,7 +39,9 @@ document.addEventListener('DOMContentLoaded', () => {
         socket.on('all messages', data => {
             const li = document.createElement('li');
             li.className = 'list-group-item list-group-item-dark d-flex justify-content-between';
-            li.innerHTML = `${data['message']} <small>${data['timestamp']}</small>`;
+            // li.innerHTML = `<b>${data['user']}:</b> ${data['message']} <small>${data['timestamp']}</small>`;
+            li.innerHTML = `${data['user']}: ${data['message']} <small>${data['timestamp']}</small>`;
+
             document.querySelector('#scroll-list-chat').append(li);
         });
 
