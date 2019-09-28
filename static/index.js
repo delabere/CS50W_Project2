@@ -46,7 +46,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Populate last 100 messages todo: add limit to 100
                 data.forEach((message) => {
                     const li = document.createElement('li');
-                    li.className = 'list-group-item list-group-item-dark d-flex justify-content-between';
+                    if (message['user'] === localStorage['user']) {
+                        li.className = 'list-group-item list-group-item-warning d-flex justify-content-between';
+                    } else {
+                        li.className = 'list-group-item list-group-item-dark d-flex justify-content-between';
+                    }
                     li.innerHTML = `<span><b>${message['user']}:</b> ${message['message']}</span> <small>${message['timestamp']}</small>`;
                     document.querySelector('#scroll-list-chat').append(li);
                 });
@@ -82,7 +86,11 @@ document.addEventListener('DOMContentLoaded', () => {
         socket.on('all messages', data => {
             if (data['chat_room'] === chat_room) {
                 const li = document.createElement('li');
-                li.className = 'list-group-item list-group-item-dark d-flex justify-content-between';
+                if (data['user'] === localStorage['user']) {
+                    li.className = 'list-group-item list-group-item-warning d-flex justify-content-between';
+                } else {
+                    li.className = 'list-group-item list-group-item-dark d-flex justify-content-between';
+                }
                 li.innerHTML = `<span><b>${data['user']}:</b> ${data['message']}</span> <small>${data['timestamp']}</small>`;
                 document.querySelector('#scroll-list-chat').append(li);
             }
