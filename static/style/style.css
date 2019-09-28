@@ -6,6 +6,10 @@ h2 {
   font-size: 2vw;
 }
 
+#scroll-list-chat {
+  padding: 0;
+}
+
 #scroll-lists {
   padding: 0;
 }

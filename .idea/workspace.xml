@@ -4,6 +4,7 @@
     <list default="true" id="fc280282-334e-4747-9fef-3c6be9ce7bbf" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/style/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/static/style/style.scss" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -128,7 +129,7 @@
       <workItem from="1569603289251" duration="56000" />
       <workItem from="1569603353327" duration="202000" />
       <workItem from="1569603564030" duration="17502000" />
-      <workItem from="1569673917936" duration="8603000" />
+      <workItem from="1569673917936" duration="8965000" />
     </task>
     <task id="LOCAL-00001" summary="formatting">
       <created>1569602711051</created>
@@ -263,7 +264,14 @@
       <option name="project" value="LOCAL" />
       <updated>1569682428291</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="messages refreshed and send through socket are coloured differently">
+      <created>1569682965360</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1569682965360</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -302,9 +310,10 @@
     <MESSAGE value="handle chat to login redirect" />
     <MESSAGE value="added logout functionality" />
     <MESSAGE value="user data now passed back to server and back with socketio" />
-    <option name="LAST_COMMIT_MESSAGE" value="user data now passed back to server and back with socketio" />
+    <MESSAGE value="messages refreshed and send through socket are coloured differently" />
+    <option name="LAST_COMMIT_MESSAGE" value="messages refreshed and send through socket are coloured differently" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/CS50W_Project2$Flask.coverage" NAME="Flask Coverage Results" MODIFIED="1569682921183" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/CS50W_Project2$Flask.coverage" NAME="Flask Coverage Results" MODIFIED="1569683066405" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

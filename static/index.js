@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // remove user variable when pressing 'logout' and log user out
     document.querySelector('#logout').onclick = () => {
         // remove localstorage user
-        delete localStorage['user']
+        delete localStorage['user'];
         // redirect back to login
         window.location = `http://${window.location.hostname}:${window.location.port}/start`;
     };
