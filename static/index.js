@@ -1,15 +1,3 @@
-// This code changes the title of the page based on the chat that is selected
-// document.addEventListener('DOMContentLoaded', () => {
-//
-//     // change title of chat to the selected element's innerhtml
-//     document.querySelectorAll('#chat-selector').forEach((chat) => {
-//         chat.onclick = () => {
-//             document.querySelector('#chat-title').innerHTML = chat.innerHTML;
-//         };
-//     });
-//
-// });
-
 // when the DOM has loaded - start the below
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -29,7 +17,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 // Extract JSON data from request
                 const data = JSON.parse(request.responseText);
-                console.log(data)
 
                 //update the result div
                 // Populate last 100 messages todo: add limit to 100
@@ -69,11 +56,11 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         socket.on('all messages', data => {
-            if(data['chat_room'] === chat_room){
-            const li = document.createElement('li');
-            li.className = 'list-group-item list-group-item-dark d-flex justify-content-between';
-            li.innerHTML = `<span><b>${data['user']}:</b> ${data['message']}</span> <small>${data['timestamp']}</small>`;
-            document.querySelector('#scroll-list-chat').append(li);
+            if (data['chat_room'] === chat_room) {
+                const li = document.createElement('li');
+                li.className = 'list-group-item list-group-item-dark d-flex justify-content-between';
+                li.innerHTML = `<span><b>${data['user']}:</b> ${data['message']}</span> <small>${data['timestamp']}</small>`;
+                document.querySelector('#scroll-list-chat').append(li);
             }
         });
 

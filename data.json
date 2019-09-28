@@ -1,7 +1,12 @@
 {
-  "users": ["Delabere", "Leng", "George"],
+  "users": [
+    "Delabere",
+    "Leng",
+    "George"
+  ],
   "rooms": {
-    "Welcome!": [{
+    "Welcome!": [
+      {
         "user": "Delabere",
         "message": "Welcome to this chatroom!",
         "timestamp": "27/09/2019 11:35"
@@ -12,10 +17,12 @@
         "timestamp": "27/09/2019 11:36"
       }
     ],
-    "Channel 2": [{
-      "user": "Delabere",
-      "message": "test message",
-      "timestamp": "27/09/2019 11:35"
-    }]
+    "Channel 2": [
+      {
+        "user": "Delabere",
+        "message": "test message",
+        "timestamp": "27/09/2019 11:35"
+      }
+    ]
   }
 }

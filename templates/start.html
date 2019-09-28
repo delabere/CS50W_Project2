@@ -1,18 +1,27 @@
 {% extends 'base.html' %}
 
 {% block page_content %}
+<script type="text/javascript" src="{{url_for('static', filename='start.js')}}"> </script>
+
+<title>Gif-Chat</title>
+
+</head>
+
+<body>
 
 <div class="container-fluid">
   <div class="row align-items-center justify-content-md-center" id="main-viewport">
         <div class="col-3">
           <h2 class='text-center'>what's your handle?</h2>
+          <form id="handle-form" action=" {{ url_for('index') }} ">
           <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="message..." aria-label="Recipient's username" aria-describedby="button-addon2">
+            <input type="text" class="form-control" id="handle" placeholder="handle..." aria-label="Recipient's username" aria-describedby="button-addon2">
             <div class="input-group-append">
-              <button class="btn btn-raised btn-info" type="button" id="button-addon2">Button
+              <button class="btn btn-raised btn-info" type="submit" id="button-addon2">Button
               </button>
             </div>
           </div>
+          </form>
         </div>
   </div>
 
