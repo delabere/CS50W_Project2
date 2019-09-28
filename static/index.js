@@ -1,6 +1,14 @@
 // when the DOM has loaded - start the below
 document.addEventListener('DOMContentLoaded', () => {
 
+    // does not redirect if user is logged in
+    if (localStorage['user']) {
+    }
+    // redirects the user to the start page if not logged in
+    else{
+        window.location = `http://${window.location.hostname}:${window.location.port}/start`;
+    }
+
     // change title of chat to the selected element's innerhtml
     document.querySelectorAll('#chat-selector').forEach((chat) => {
 
