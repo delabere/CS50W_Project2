@@ -5,37 +5,21 @@ document.addEventListener('DOMContentLoaded', () => {
     if (localStorage['user']) {
     }
     // redirects the user to the start page if not logged in
-    else{
+    else {
         window.location = `http://${window.location.hostname}:${window.location.port}/start`;
     }
 
     // place username in top left of window
-
-   document.querySelector('#username').innerText = localStorage['user'];
+    document.querySelector('#username').innerText = localStorage['user'];
 
 
     // remove user variable when pressing 'logout' and log user out
     document.querySelector('#logout').onclick = () => {
-
-    // remove localstorage user
+        // remove localstorage user
         delete localStorage['user']
-
         // redirect back to login
         window.location = `http://${window.location.hostname}:${window.location.port}/start`;
     };
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     // change title of chat to the selected element's innerhtml
@@ -89,7 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelector('#form').onsubmit = () => {
             const message = document.querySelector('#message').value;
             document.querySelector('#message').value = '';
-            socket.emit('send message', {'message': message, 'chat_room': chat_room});
+            socket.emit('send message', {'message': message, 'chat_room': chat_room, 'user': localStorage['user']});
 
             // stop the form from sending GET request to chat view-function
             return false;

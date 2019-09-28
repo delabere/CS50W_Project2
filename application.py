@@ -41,6 +41,7 @@ socketio = SocketIO(app)
 def home():
     return render_template('start.html')
 
+
 @app.route("/", methods=['GET', 'POST'])
 @app.route("/chat", methods=['GET', 'POST'])
 def index():
@@ -48,10 +49,12 @@ def index():
         data = json.load(f)
     return render_template('chat.html', data=data)
 
+
 @app.route("/get_history", methods=['POST'])
 def get_history():
     chat_room = request.form.get("chat_room")
     return jsonify(messages['rooms'][chat_room])
+
 
 @socketio.on("send message")
 def vote(data):
@@ -61,7 +64,7 @@ def vote(data):
     # messages['rooms'][chat_room]['user'] = user   # todo: add the user information
     pprint(messages['rooms'][data['chat_room']])
     record = {
-        "user": "Delabere",  # todo: hardcoded user for now
+        "user": data['user'],  # todo: hardcoded user for now
         "message": data['message'],
         "timestamp": time.strftime('%d/%m/%Y %T')
     }
