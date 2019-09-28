@@ -3,6 +3,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // change title of chat to the selected element's innerhtml
     document.querySelectorAll('#chat-selector').forEach((chat) => {
+
+        console.log(localStorage['user']);
+
         chat.onclick = () => {
             chat_room = chat.innerText;
             document.querySelector('#chat-title').innerHTML = chat_room;
