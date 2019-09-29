@@ -1,5 +1,5 @@
 // function for creating message elements
-function printMessage(message){
+function printMessage(message) {
     const li = document.createElement('li');
     if (message['user'] === localStorage['user']) {
         li.className = 'list-group-item list-group-item-warning d-flex justify-content-between';
@@ -33,6 +33,41 @@ document.addEventListener('DOMContentLoaded', () => {
         // redirect back to login
         window.location = `http://${window.location.hostname}:${window.location.port}/start`;
     };
+
+    // load in chatroom elements to chat-nav list
+    const request = new XMLHttpRequest();
+    request.open('POST', '/get_rooms');
+
+    // Callback function for when request completes
+    request.onload = () => {
+
+        // Extract JSON data from request
+        const data = JSON.parse(request.responseText);
+
+        //update the result div
+        // Populate last 100 messages todo: add limit to 100
+        data.forEach((room) => {
+            const a = document.createElement('a');
+
+            a.className = 'list-group-item list-group-item-action list-group-item-primary d-flex justify-content-between align-items-center';
+            a.id = 'chat-selector';
+            // if (room['user'] === localStorage['user']) {
+            //     li.className = 'list-group-item list-group-item-warning d-flex justify-content-between';
+            // } else {
+            //     li.className = 'list-group-item list-group-item-dark d-flex justify-content-between';
+            // }
+            a.innerHTML = `${room}`;
+            document.querySelector('#scroll-lists').append(a);
+        });
+    };
+
+    // Add data to send with request
+    // const data = new FormData();
+    // data.append('chat_room', chat_room);
+
+    // Send request
+    request.send();
+    // return false;
 
 
     // change title of chat to the selected element's innerhtml
@@ -96,7 +131,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 printMessage(data);
                 var scroller = document.querySelector('#chat-middle');
                 scroller.scrollTop = scroller.scrollHeight;
-            }});
+            }
+        });
 
     });
 });
