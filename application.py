@@ -45,29 +45,33 @@ def home():
 @app.route("/", methods=['GET', 'POST'])
 @app.route("/chat", methods=['GET', 'POST'])
 def index():
-    with open('data.json', mode='r') as f:
-        data = json.load(f)
-    return render_template('chat.html', data=data)
+    return render_template('chat.html', data=messages)
 
 
 @app.route("/get_history", methods=['POST'])
 def get_history():
     chat_room = request.form.get("chat_room")
-    return jsonify(messages['rooms'][chat_room])
+    with open('data.json', mode='r+') as f:
+        data = json.load(f)
+    return jsonify(data['rooms'][chat_room])
 
 
 @socketio.on("send message")
 def vote(data):
-    pprint(messages['rooms'][data['chat_room']])
     record = {
-        "user": data['user'],  # todo: hardcoded user for now
+        "user": data['user'],
         "message": data['message'],
         "timestamp": time.strftime('%d/%m/%Y %T')
     }
     messages['rooms'][data['chat_room']].append(record)
     record['chat_room'] = data['chat_room']
     emit("all messages", record, broadcast=True)
-
+    # write chat data to json object
+    with open('data.json', mode='r+') as f:
+        chat_data = json.load(f)
+        chat_data['rooms'][data['chat_room']].append(record)
+    with open('data.json', mode='w+') as f:
+        json.dump(chat_data, f)
 
 # if not run like this then SocketIO error is raised
 if __name__ == "__main__":
