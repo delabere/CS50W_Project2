@@ -1,3 +1,16 @@
+// function for creating message elements
+function printMessage(message){
+    const li = document.createElement('li');
+    if (message['user'] === localStorage['user']) {
+        li.className = 'list-group-item list-group-item-warning d-flex justify-content-between';
+    } else {
+        li.className = 'list-group-item list-group-item-dark d-flex justify-content-between';
+    }
+    li.innerHTML = `<span><b>${message['user']}:</b> ${message['message']}</span> <small>${message['timestamp']}</small>`;
+    document.querySelector('#scroll-list-chat').append(li);
+}
+
+
 // when the DOM has loaded - start the below
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -45,14 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 //update the result div
                 // Populate last 100 messages todo: add limit to 100
                 data.forEach((message) => {
-                    const li = document.createElement('li');
-                    if (message['user'] === localStorage['user']) {
-                        li.className = 'list-group-item list-group-item-warning d-flex justify-content-between';
-                    } else {
-                        li.className = 'list-group-item list-group-item-dark d-flex justify-content-between';
-                    }
-                    li.innerHTML = `<span><b>${message['user']}:</b> ${message['message']}</span> <small>${message['timestamp']}</small>`;
-                    document.querySelector('#scroll-list-chat').append(li);
+                    printMessage(message);
                 });
                 var scroller = document.querySelector('#chat-middle');
                 scroller.scrollTop = scroller.scrollHeight;
@@ -87,14 +93,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         socket.on('all messages', data => {
             if (data['chat_room'] === chat_room) {
-                const li = document.createElement('li');
-                if (data['user'] === localStorage['user']) {
-                    li.className = 'list-group-item list-group-item-warning d-flex justify-content-between';
-                } else {
-                    li.className = 'list-group-item list-group-item-dark d-flex justify-content-between';
-                }
-                li.innerHTML = `<span><b>${data['user']}:</b> ${data['message']}</span> <small>${data['timestamp']}</small>`;
-                document.querySelector('#scroll-list-chat').append(li);
+                printMessage(data);
                 var scroller = document.querySelector('#chat-middle');
                 scroller.scrollTop = scroller.scrollHeight;
             }});

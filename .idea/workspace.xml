@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AnalysisUIOptions">
+    <option name="SCOPE_TYPE" value="3" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="fc280282-334e-4747-9fef-3c6be9ce7bbf" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/CS50W_Project2.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/CS50W_Project2.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application.py" beforeDir="false" afterPath="$PROJECT_DIR$/application.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/index.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -165,7 +165,7 @@
       <workItem from="1569603353327" duration="202000" />
       <workItem from="1569603564030" duration="17502000" />
       <workItem from="1569673917936" duration="9587000" />
-      <workItem from="1569754275575" duration="1751000" />
+      <workItem from="1569754275575" duration="3436000" />
     </task>
     <task id="LOCAL-00001" summary="formatting">
       <created>1569602711051</created>
@@ -314,7 +314,14 @@
       <option name="project" value="LOCAL" />
       <updated>1569683212113</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="window scrolls to bottom of chat on selection and message">
+      <created>1569756753640</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1569756753641</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -372,10 +379,11 @@
     <MESSAGE value="user data now passed back to server and back with socketio" />
     <MESSAGE value="messages refreshed and send through socket are coloured differently" />
     <MESSAGE value="fixed padding on #scroll-list-chat" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed padding on #scroll-list-chat" />
+    <MESSAGE value="window scrolls to bottom of chat on selection and message" />
+    <option name="LAST_COMMIT_MESSAGE" value="window scrolls to bottom of chat on selection and message" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/CS50W_Project2$Flask.coverage" NAME="Flask Coverage Results" MODIFIED="1569683066405" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/CS50W_Project2$application.coverage" NAME="application Coverage Results" MODIFIED="1569756715499" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/CS50W_Project2$application.coverage" NAME="application Coverage Results" MODIFIED="1569768664831" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
