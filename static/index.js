@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // } else {
             //     li.className = 'list-group-item list-group-item-dark d-flex justify-content-between';
             // }
-            a.innerHTML = `${room}`;
+            a.innerHTML = room;
             document.querySelector('#scroll-lists').append(a);
         });
     };
