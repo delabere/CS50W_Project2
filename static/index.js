@@ -54,6 +54,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     li.innerHTML = `<span><b>${message['user']}:</b> ${message['message']}</span> <small>${message['timestamp']}</small>`;
                     document.querySelector('#scroll-list-chat').append(li);
                 });
+                var scroller = document.querySelector('#chat-middle');
+                scroller.scrollTop = scroller.scrollHeight;
             };
 
             // Add data to send with request
@@ -93,8 +95,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
                 li.innerHTML = `<span><b>${data['user']}:</b> ${data['message']}</span> <small>${data['timestamp']}</small>`;
                 document.querySelector('#scroll-list-chat').append(li);
-            }
-        });
+                var scroller = document.querySelector('#chat-middle');
+                scroller.scrollTop = scroller.scrollHeight;
+            }});
 
     });
 });

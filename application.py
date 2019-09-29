@@ -58,10 +58,6 @@ def get_history():
 
 @socketio.on("send message")
 def vote(data):
-    # message = data['message']
-    # chat_room = data['chat_room']
-    # messages.append(message)
-    # messages['rooms'][chat_room]['user'] = user   # todo: add the user information
     pprint(messages['rooms'][data['chat_room']])
     record = {
         "user": data['user'],  # todo: hardcoded user for now
