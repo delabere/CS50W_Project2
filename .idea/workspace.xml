@@ -4,12 +4,8 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fc280282-334e-4747-9fef-3c6be9ce7bbf" name="Default Changelist" comment="factored out message creation code">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application.py" beforeDir="false" afterPath="$PROJECT_DIR$/application.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/data.json" afterDir="false" />
+    <list default="true" id="fc280282-334e-4747-9fef-3c6be9ce7bbf" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/static/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/chat.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/chat.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -169,7 +165,7 @@
       <workItem from="1569603564030" duration="17502000" />
       <workItem from="1569673917936" duration="9587000" />
       <workItem from="1569754275575" duration="5799000" />
-      <workItem from="1569776845043" duration="2206000" />
+      <workItem from="1569776845043" duration="2453000" />
     </task>
     <task id="LOCAL-00001" summary="formatting">
       <created>1569602711051</created>
@@ -332,7 +328,21 @@
       <option name="project" value="LOCAL" />
       <updated>1569768729026</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="messages coming from JSON - new ones still not clickable - something to do with classes or id perhaps">
+      <created>1569779490554</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1569779490554</updated>
+    </task>
+    <task id="LOCAL-00025" summary="messages coming from JSON - new ones still not clickable - something to do with classes or id perhaps">
+      <created>1569779542720</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1569779542720</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -392,7 +402,8 @@
     <MESSAGE value="fixed padding on #scroll-list-chat" />
     <MESSAGE value="window scrolls to bottom of chat on selection and message" />
     <MESSAGE value="factored out message creation code" />
-    <option name="LAST_COMMIT_MESSAGE" value="factored out message creation code" />
+    <MESSAGE value="messages coming from JSON - new ones still not clickable - something to do with classes or id perhaps" />
+    <option name="LAST_COMMIT_MESSAGE" value="messages coming from JSON - new ones still not clickable - something to do with classes or id perhaps" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/CS50W_Project2$Flask.coverage" NAME="Flask Coverage Results" MODIFIED="1569683066405" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />

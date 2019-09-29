@@ -58,6 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // }
             a.innerHTML = room;
             document.querySelector('#scroll-lists').append(a);
+            // add on click logic here
         });
     };
 
