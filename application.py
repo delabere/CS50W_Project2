@@ -9,29 +9,6 @@ from pprint import pprint
 # temporary application data with more detail{
 
 
-# messages = {
-#     "users": ["Delabere", "Leng", "George"],
-#     "rooms": {
-#         "Welcome!": [{
-#             "user": "Delabere",
-#             "message": "Welcome to this chatroom!",
-#             "timestamp": "27/09/2019 11:35"
-#         },
-#             {
-#                 "user": "Delabere",
-#                 "message": "This is going to be a lot of fun...",
-#                 "timestamp": "27/09/2019 11:36"
-#             }
-#         ],
-#         "Channel 2": [{
-#             "user": "Delabere",
-#             "message": "test message",
-#             "timestamp": "27/09/2019 11:35"
-#         }]
-#     }
-# }
-messages = {}  # over-riding the messages variable to get it working only on dynamic chats from JSON
-
 app = Flask(__name__)
 app.config["SECRET_KEY"] = os.getenv("SECRET_KEY")
 socketio = SocketIO(app)
