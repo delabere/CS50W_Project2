@@ -8,27 +8,29 @@ from pprint import pprint
 
 # temporary application data with more detail{
 
-messages = {
-	"users": ["Delabere", "Leng", "George"],
-	"rooms": {
-		"Welcome!": [{
-			"user": "Delabere",
-			"message": "Welcome to this chatroom!",
-			"timestamp": "27/09/2019 11:35"
-		},
-			{
-				"user": "Delabere",
-				"message": "This is going to be a lot of fun...",
-				"timestamp": "27/09/2019 11:36"
-			}
-		],
-		"Channel 2": [{
-			"user": "Delabere",
-			"message": "test message",
-			"timestamp": "27/09/2019 11:35"
-		}]
-	}
-}
+
+# messages = {
+#     "users": ["Delabere", "Leng", "George"],
+#     "rooms": {
+#         "Welcome!": [{
+#             "user": "Delabere",
+#             "message": "Welcome to this chatroom!",
+#             "timestamp": "27/09/2019 11:35"
+#         },
+#             {
+#                 "user": "Delabere",
+#                 "message": "This is going to be a lot of fun...",
+#                 "timestamp": "27/09/2019 11:36"
+#             }
+#         ],
+#         "Channel 2": [{
+#             "user": "Delabere",
+#             "message": "test message",
+#             "timestamp": "27/09/2019 11:35"
+#         }]
+#     }
+# }
+messages = {}  # over-riding the messages variable to get it working only on dynamic chats from JSON
 
 app = Flask(__name__)
 app.config["SECRET_KEY"] = os.getenv("SECRET_KEY")
@@ -37,48 +39,45 @@ socketio = SocketIO(app)
 
 @app.route("/start")
 def home():
-	return render_template('start.html')
+    return render_template('start.html')
 
 
-@app.route("/", methods=['GET', 'POST'])
+@app.route("/", methods=['GET', 'POST'])  # todo: move the default index root up to start
 @app.route("/chat", methods=['GET', 'POST'])
 def index():
-	return render_template('chat.html', data=messages)
+    return render_template('chat.html', data=messages)  # todo: remove data=messages and loop from jinja2 'chat.html'
 
 
 @app.route("/get_rooms", methods=['POST'])
 def get_rooms():
-	with open('data.json', mode='r+') as f:
-		data = json.load(f)
-	return jsonify(data['chat_rooms'])
+    with open('data.json', mode='r+') as f:
+        data = json.load(f)
+    return jsonify(data['chat_rooms'])
 
 
 @app.route("/get_history", methods=['POST'])
 def get_history():
-	chat_room = request.form.get("chat_room")
-	with open('data.json', mode='r+') as f:
-		data = json.load(f)
-	return jsonify(data['rooms'][chat_room])
+    chat_room = request.form.get("chat_room")
+    with open('data.json', mode='r+') as f:
+        data = json.load(f)
+    return jsonify(data['rooms'][chat_room])
 
 
 @socketio.on("send message")
 def vote(data):
-	record = {
-		"user": data['user'],
-		"message": data['message'],
-		"timestamp": time.strftime('%d/%m/%Y %T')
-	}
-	messages['rooms'][data['chat_room']].append(record)
-	record['chat_room'] = data['chat_room']
-	emit("all messages", record, broadcast=True)
-	# write chat data to json object
-	with open('data.json', mode='r+') as f:
-		chat_data = json.load(f)
-		chat_data['rooms'][data['chat_room']].append(record)
-	with open('data.json', mode='w+') as f:
-		json.dump(chat_data, f)
+    print(data)
+    record = {"user": data['user'], "message": data['message'], "timestamp": time.strftime('%d/%m/%Y %T'),
+              'chat_room': data['chat_room']}
+    # messages['rooms'][data['chat_room']].append(record)
+    emit("all messages", record, broadcast=True)
+    # write chat data to json object
+    with open('data.json', mode='r+') as f:
+        chat_data = json.load(f)
+        chat_data['rooms'][data['chat_room']].append(record)
+    with open('data.json', mode='w+') as f:
+        json.dump(chat_data, f)
 
 
 # if not run like this then SocketIO error is raised
 if __name__ == "__main__":
-	socketio.run(app)
+    socketio.run(app)

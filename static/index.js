@@ -58,7 +58,47 @@ document.addEventListener('DOMContentLoaded', () => {
             // }
             a.innerHTML = room;
             document.querySelector('#scroll-lists').append(a);
-            // add on click logic here
+
+            // add onclick() to each chat in left pane and load chat data
+            document.querySelectorAll('#chat-selector').forEach((chat) => {
+
+                console.log(localStorage['user']);
+
+                chat.onclick = () => {
+                    chat_room = chat.innerText;
+                    document.querySelector('#chat-title').innerHTML = chat_room;
+                    document.querySelector('#scroll-list-chat').innerText = '';
+                    //   todo: here I need to be able to pull all the data from this chat into the list
+                    // initialise new request
+                    const request = new XMLHttpRequest();
+                    request.open('POST', '/get_history');
+
+                    // Callback function for when request completes
+                    request.onload = () => {
+
+                        // Extract JSON data from request
+                        const data = JSON.parse(request.responseText);
+
+                        //update the result div
+                        // Populate last 100 messages todo: add limit to 100
+                        data.forEach((message) => {
+                            printMessage(message);
+                        });
+                        var scroller = document.querySelector('#chat-middle');
+                        scroller.scrollTop = scroller.scrollHeight;
+                    };
+
+                    // Add data to send with request
+                    const data = new FormData();
+                    data.append('chat_room', chat_room);
+
+                    // Send request
+                    request.send(data);
+                    return false;
+
+
+                };
+            });
         });
     };
 
@@ -71,46 +111,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // return false;
 
 
-    // change title of chat to the selected element's innerhtml
-    document.querySelectorAll('#chat-selector').forEach((chat) => {
-
-        console.log(localStorage['user']);
-
-        chat.onclick = () => {
-            chat_room = chat.innerText;
-            document.querySelector('#chat-title').innerHTML = chat_room;
-            document.querySelector('#scroll-list-chat').innerText = '';
-            //   todo: here I need to be able to pull all the data from this chat into the list
-            // initialise new request
-            const request = new XMLHttpRequest();
-            request.open('POST', '/get_history');
-
-            // Callback function for when request completes
-            request.onload = () => {
-
-                // Extract JSON data from request
-                const data = JSON.parse(request.responseText);
-
-                //update the result div
-                // Populate last 100 messages todo: add limit to 100
-                data.forEach((message) => {
-                    printMessage(message);
-                });
-                var scroller = document.querySelector('#chat-middle');
-                scroller.scrollTop = scroller.scrollHeight;
-            };
-
-            // Add data to send with request
-            const data = new FormData();
-            data.append('chat_room', chat_room);
-
-            // Send request
-            request.send(data);
-            return false;
-
-
-        };
-    });
     // Connect to websocket
     var socket = io.connect(location.protocol + '//' + document.domain + ':' + location.port);
 
