@@ -62,7 +62,10 @@ def vote(data):
     x = random.randint(0, len(words) - 1)  # randomly grabs a word from the sentence
     keyword = words[x]
     print(keyword)
-    gif_url = search_gif(keyword)
+    if random.random() <= 0.35:
+        gif_url = search_gif(keyword)
+    else:
+        gif_url = None
     record = {"user": data['user'], "message": data['message'], "timestamp": time.strftime('%d/%m - %H:%S'),
               'chat_room': data['chat_room'], 'gif_url': gif_url}
     emit("all messages", record, broadcast=True)

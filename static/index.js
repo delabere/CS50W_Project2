@@ -15,18 +15,20 @@ function printMessage(message) {
         li.style.borderRadius = '30px 30px 5px 30px';
     }
     li.innerHTML = `<span><b>${message['user']}:</b> ${message['message']}</span> <small>${message['timestamp']}</small>`;
-
-    const gif = document.createElement('img');
-    gif.src = message['gif_url'];
-    gif.style.width = '50%';
-    gif.style.maxWidth = '500px';
-    gif.style.marginLeft = 'auto';
-    gif.style.marginRight = 'auto';
-
-    // gif.style.height = '48px';
-    gif.style.marginBottom = '10px';
     document.querySelector('#scroll-list-chat').append(li);
-    document.querySelector('#scroll-list-chat').append(gif);
+    if (message['gif_url']){
+        const gif = document.createElement('img');
+
+        gif.src = message['gif_url'];
+        gif.style.width = '50%';
+        gif.style.maxWidth = '500px';
+        gif.style.marginLeft = 'auto';
+        gif.style.marginRight = 'auto';
+
+        // gif.style.height = '48px';
+        gif.style.marginBottom = '10px';
+        document.querySelector('#scroll-list-chat').append(gif);
+    }
 }
 
 
