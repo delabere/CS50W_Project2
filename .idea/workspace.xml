@@ -5,7 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fc280282-334e-4747-9fef-3c6be9ce7bbf" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application.py" beforeDir="false" afterPath="$PROJECT_DIR$/application.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/static/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/chat.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/chat.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -177,7 +181,7 @@
       <workItem from="1569673917936" duration="9587000" />
       <workItem from="1569754275575" duration="5799000" />
       <workItem from="1569776845043" duration="2453000" />
-      <workItem from="1570097649048" duration="14364000" />
+      <workItem from="1570097649048" duration="19394000" />
     </task>
     <task id="LOCAL-00001" summary="formatting">
       <created>1569602711051</created>
@@ -403,7 +407,14 @@
       <option name="project" value="LOCAL" />
       <updated>1570114384801</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="more style changes">
+      <created>1570114758806</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1570114758806</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -440,7 +451,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="socket passing time/message/user information" />
     <MESSAGE value="added user information to message post" />
     <MESSAGE value="username now appears bold in chat" />
     <MESSAGE value="ajax request being made to get_history view and passing response to frontent" />
@@ -465,10 +475,11 @@
     <MESSAGE value="can now create new room and messages saving correctly" />
     <MESSAGE value="user cannot create chat if name already exists" />
     <MESSAGE value="styling and formatting for list elements and time" />
-    <option name="LAST_COMMIT_MESSAGE" value="styling and formatting for list elements and time" />
+    <MESSAGE value="more style changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="more style changes" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/CS50W_Project2$application.coverage" NAME="application Coverage Results" MODIFIED="1569779522618" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/CS50W_Project2$Flask.coverage" NAME="Flask Coverage Results" MODIFIED="1570114359957" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/CS50W_Project2$Flask.coverage" NAME="Flask Coverage Results" MODIFIED="1570119580604" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

@@ -3,16 +3,36 @@ from flask import Flask, render_template, url_for, jsonify, request
 from flask_socketio import SocketIO, emit
 import json
 import time
-
+import requests
+import random
+import os
 
 app = Flask(__name__)
 app.config["SECRET_KEY"] = os.getenv("SECRET_KEY")
 socketio = SocketIO(app)
 
+# create data store if it doesn't exist
+if os.path.exists('data.json'):
+    pass
+else:
+    with open('data.json', mode='w+') as f:
+        json.dump({"chat_rooms": [], "rooms": {}}, f)
+
+
+def search_gif(text):
+    """get a GIF that is similar to text sent"""
+    payload = {'s': text, 'api_key': 'Z3paH5u96rp5UNFGIRLKp6uWIu8bSp8Z'}
+    r = requests.get('http://api.giphy.com/v1/gifs/translate', params=payload)
+    r = r.json()
+    url = r['data']['images']['original']['url']
+
+    return url
+
 
 @app.route("/start")
 def home():
     return render_template('start.html')
+
 
 # todo: create something in first login view so not empty
 @app.route("/", methods=['GET', 'POST'])  # todo: move the default index root up to start
@@ -38,9 +58,13 @@ def get_history():
 
 @socketio.on("send message")
 def vote(data):
+    words = data['message'].split()
+    x = random.randint(0, len(words) - 1)  # randomly grabs a word from the sentence
+    keyword = words[x]
+    print(keyword)
+    gif_url = search_gif(keyword)
     record = {"user": data['user'], "message": data['message'], "timestamp": time.strftime('%d/%m - %H:%S'),
-              'chat_room': data['chat_room']}
-    # messages['rooms'][data['chat_room']].append(record)
+              'chat_room': data['chat_room'], 'gif_url': gif_url}
     emit("all messages", record, broadcast=True)
     # write chat data to json object
     with open('data.json', mode='r+') as f:

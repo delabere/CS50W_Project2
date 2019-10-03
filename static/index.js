@@ -2,18 +2,32 @@
 function printMessage(message) {
     const li = document.createElement('li');
     if (message['user'] === localStorage['user']) {
-        li.className = 'list-group-item list-group-item-warning d-flex justify-content-between rounded';
-        li.style.marginLeft = '15px';
+        li.className = 'list-group-item list-group-item-warning d-flex justify-content-between';
+        li.style.marginLeft = '25px';
         li.style.marginRight = '5px';
-        li.style.marginTop = '5px';
+        li.style.marginBottom = '5px';
+        li.style.borderRadius = '30px 30px 5px 30px';
     } else {
         li.className = 'list-group-item list-group-item-dark d-flex justify-content-between';
-        li.style.marginRight = '15px';
+        li.style.marginRight = '30px';
         li.style.marginLeft = '5px';
-        li.style.marginTop = '5px';
+        li.style.marginBottom = '5px';
+        li.style.borderRadius = '30px 30px 5px 30px';
     }
     li.innerHTML = `<span><b>${message['user']}:</b> ${message['message']}</span> <small>${message['timestamp']}</small>`;
+
+    const gif = document.createElement('img');
+    gif.src = message['gif_url'];
+    gif.style.width = '50%';
+    gif.style.marginLeft = 'auto';
+    gif.style.marginRight = 'auto';
+
+    // gif.style.height = '48px';
+    gif.style.marginBottom = '10px';
     document.querySelector('#scroll-list-chat').append(li);
+    document.querySelector('#scroll-list-chat').append(gif);
+                var scroller = document.querySelector('#chat-middle');
+                scroller.scrollTop = scroller.scrollHeight;
 }
 
 
@@ -57,15 +71,11 @@ document.addEventListener('DOMContentLoaded', () => {
         data.forEach((room) => {
             const a = document.createElement('a');
 
-            a.className = 'list-group-item list-group-item-action list-group-item-primary d-flex justify-content-between align-items-center rounded';
+            a.className = 'list-group-item list-group-item-action list-group-item-primary d-flex justify-content-between align-items-center';
             a.id = 'chat-selector';
-            // if (room['user'] === localStorage['user']) {
-            //     li.className = 'list-group-item list-group-item-warning d-flex justify-content-between';
-            // } else {
-            //     li.className = 'list-group-item list-group-item-dark d-flex justify-content-between';
-            // }
             a.innerHTML = room;
             a.style.marginTop = '5px';
+            a.style.borderRadius = '5px';
             document.querySelector('#scroll-lists').append(a);
 
             // add onclick() to each chat in left pane and load chat data
@@ -127,11 +137,6 @@ document.addEventListener('DOMContentLoaded', () => {
             console.log('local storage doesnt exist');
         }
     };
-
-
-    // Add data to send with request
-    // const data = new FormData();
-    // data.append('chat_room', chat_room);
 
     // Send request
     request.send();
