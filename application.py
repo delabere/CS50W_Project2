@@ -52,18 +52,19 @@ def vote(data):
 
 @socketio.on("send room")
 def create_room(data):
-    # messages['rooms'][data['chat_room']].append(record)
-    print(data)
     new_room = data['new_room']
-    emit("all rooms", data, broadcast=True)
+
     # write chat data to json object
     with open('data.json', mode='r+') as f:
         chat_data = json.load(f)
+        if data['new_room'] in chat_data['chat_rooms']:
+            return False
         chat_data['chat_rooms'].append(new_room)
         chat_data['rooms'][new_room] = []
     with open('data.json', mode='w+') as f:
         json.dump(chat_data, f)
 
+    emit("all rooms", data, broadcast=True)
 
 
 # if not run like this then SocketIO error is raised

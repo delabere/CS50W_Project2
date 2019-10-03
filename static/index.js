@@ -168,6 +168,7 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log(document.querySelector('#room_form'));
         document.querySelector('#room_form').onsubmit = () => {
             const new_room = document.querySelector('#room_name').value;
+
             document.querySelector('#room_name').value = '';
             console.log(new_room);
             socket_room.emit('send room', {'new_room': new_room});
@@ -215,7 +216,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 return false;
 
             };
-                document.querySelector('#scroll-lists').append(chat);
+            document.querySelector('#scroll-lists').append(chat);
 
         });
 
