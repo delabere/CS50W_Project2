@@ -1,12 +1,8 @@
 import os
-
 from flask import Flask, render_template, url_for, jsonify, request
 from flask_socketio import SocketIO, emit
 import json
 import time
-from pprint import pprint
-
-# temporary application data with more detail{
 
 
 app = Flask(__name__)
@@ -22,7 +18,7 @@ def home():
 @app.route("/", methods=['GET', 'POST'])  # todo: move the default index root up to start
 @app.route("/chat", methods=['GET', 'POST'])
 def index():
-    return render_template('chat.html', data=messages)  # todo: remove data=messages and loop from jinja2 'chat.html'
+    return render_template('chat.html')
 
 
 @app.route("/get_rooms", methods=['POST'])
