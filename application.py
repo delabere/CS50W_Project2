@@ -29,13 +29,13 @@ def search_gif(text):
     return url
 
 
+@app.route("/")
 @app.route("/start")
 def home():
     return render_template('start.html')
 
 
 # todo: create something in first login view so not empty
-@app.route("/", methods=['GET', 'POST'])  # todo: move the default index root up to start
 @app.route("/chat", methods=['GET', 'POST'])
 def index():
     return render_template('chat.html')
