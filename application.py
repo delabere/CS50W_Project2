@@ -50,6 +50,22 @@ def vote(data):
         json.dump(chat_data, f)
 
 
+@socketio.on("send room")
+def create_room(data):
+    # messages['rooms'][data['chat_room']].append(record)
+    print(data)
+    new_room = data['new_room']
+    emit("all rooms", data, broadcast=True)
+    # write chat data to json object
+    with open('data.json', mode='r+') as f:
+        chat_data = json.load(f)
+        chat_data['chat_rooms'].append(new_room)
+        chat_data['rooms'][new_room] = []
+    with open('data.json', mode='w+') as f:
+        json.dump(chat_data, f)
+
+
+
 # if not run like this then SocketIO error is raised
 if __name__ == "__main__":
     socketio.run(app)

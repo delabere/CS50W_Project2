@@ -106,12 +106,10 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
 
-        // check if the user was previously in a chat and return them to it todo: delete this local variable also on logout
+        // check if the user was previously in a chat and return them to it
         if (localStorage['chat_room']) {
             console.log('local chat does exist');
             for (let elem of document.getElementsByClassName("list-group-item list-group-item-action list-group-item-primary d-flex justify-content-between align-items-center")) {
-                console.log('inside loop:');
-                console.log(elem.innerText);
                 if (elem.innerText === localStorage['chat_room']) {
                     if (typeof elem.onclick == "function") {
                         elem.onclick.apply(elem);
@@ -122,8 +120,6 @@ document.addEventListener('DOMContentLoaded', () => {
             console.log('local storage doesnt exist');
         }
     };
-
-
 
 
     // Add data to send with request
@@ -162,6 +158,68 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 
+    // Connect to websocket
+    var socket_room = io.connect(location.protocol + '//' + document.domain + ':' + location.port);
+
+    // When connected, configure buttons
+    socket_room.on('connect', () => {
+
+        // when the form is submitted - do the below
+        console.log(document.querySelector('#room_form'));
+        document.querySelector('#room_form').onsubmit = () => {
+            const new_room = document.querySelector('#room_name').value;
+            document.querySelector('#room_name').value = '';
+            console.log(new_room);
+            socket_room.emit('send room', {'new_room': new_room});
+            console.log(new_room);
+            // stop the form from sending GET request to chat view-function
+            return false;
+        };
+
+        socket_room.on('all rooms', data => {
+            const chat = document.createElement('a');
+            chat.className = 'list-group-item list-group-item-action list-group-item-primary d-flex justify-content-between align-items-center';
+            chat.id = 'chat-selector';
+            chat.innerHTML = data['new_room'];
+            chat.onclick = () => {  // todo: wrap this code into a functin for adding chat onclick()
+                chat_room = chat.innerText;
+                localStorage.setItem('chat_room', chat_room);
+                document.querySelector('#chat-title').innerHTML = chat_room;
+                document.querySelector('#scroll-list-chat').innerText = '';
+                //   todo: here I need to be able to pull all the data from this chat into the list
+                // initialise new request
+                const request = new XMLHttpRequest();
+                request.open('POST', '/get_history');
+
+                // Callback function for when request completes
+                request.onload = () => {
+
+                    // Extract JSON data from request
+                    const data = JSON.parse(request.responseText);
+
+                    //update the result div
+                    // Populate last 100 messages todo: add limit to 100
+                    data.forEach((message) => {
+                        printMessage(message);
+                    });
+                    var scroller = document.querySelector('#chat-middle');
+                    scroller.scrollTop = scroller.scrollHeight;
+                };
+
+                // Add data to send with request
+                const data = new FormData();
+                data.append('chat_room', chat_room);
+
+                // Send request
+                request.send(data);
+                return false;
+
+            };
+                document.querySelector('#scroll-lists').append(chat);
+
+        });
+
+    });
 
 });
 
