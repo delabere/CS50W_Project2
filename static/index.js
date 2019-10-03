@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
         data.forEach((room) => {
             const a = document.createElement('a');
 
-            a.className = 'list-group-item list-group-item-action list-group-item-primary d-flex justify-content-between align-items-center';
+            a.className = 'list-group-item list-group-item-action list-group-item-primary d-flex justify-content-between align-items-center rounded';
             a.id = 'chat-selector';
             // if (room['user'] === localStorage['user']) {
             //     li.className = 'list-group-item list-group-item-warning d-flex justify-content-between';
@@ -65,6 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
             //     li.className = 'list-group-item list-group-item-dark d-flex justify-content-between';
             // }
             a.innerHTML = room;
+            a.style.marginTop = '5px';
             document.querySelector('#scroll-lists').append(a);
 
             // add onclick() to each chat in left pane and load chat data
@@ -222,6 +223,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 return false;
 
             };
+            chat.style.marginTop = '5px';
             document.querySelector('#scroll-lists').append(chat);
 
         });
