@@ -2,9 +2,15 @@
 function printMessage(message) {
     const li = document.createElement('li');
     if (message['user'] === localStorage['user']) {
-        li.className = 'list-group-item list-group-item-warning d-flex justify-content-between';
+        li.className = 'list-group-item list-group-item-warning d-flex justify-content-between rounded';
+        li.style.marginLeft = '15px';
+        li.style.marginRight = '5px';
+        li.style.marginTop = '5px';
     } else {
         li.className = 'list-group-item list-group-item-dark d-flex justify-content-between';
+        li.style.marginRight = '15px';
+        li.style.marginLeft = '5px';
+        li.style.marginTop = '5px';
     }
     li.innerHTML = `<span><b>${message['user']}:</b> ${message['message']}</span> <small>${message['timestamp']}</small>`;
     document.querySelector('#scroll-list-chat').append(li);

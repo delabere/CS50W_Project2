@@ -38,7 +38,7 @@ def get_history():
 
 @socketio.on("send message")
 def vote(data):
-    record = {"user": data['user'], "message": data['message'], "timestamp": time.strftime('%d/%m/%Y %T'),
+    record = {"user": data['user'], "message": data['message'], "timestamp": time.strftime('%d/%m - %H:%S'),
               'chat_room': data['chat_room']}
     # messages['rooms'][data['chat_room']].append(record)
     emit("all messages", record, broadcast=True)
