@@ -14,7 +14,7 @@ socketio = SocketIO(app)
 def home():
     return render_template('start.html')
 
-
+# todo: create something in first login view so not empty
 @app.route("/", methods=['GET', 'POST'])  # todo: move the default index root up to start
 @app.route("/chat", methods=['GET', 'POST'])
 def index():
@@ -38,7 +38,6 @@ def get_history():
 
 @socketio.on("send message")
 def vote(data):
-    print(data)
     record = {"user": data['user'], "message": data['message'], "timestamp": time.strftime('%d/%m/%Y %T'),
               'chat_room': data['chat_room']}
     # messages['rooms'][data['chat_room']].append(record)

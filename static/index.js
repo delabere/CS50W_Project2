@@ -22,6 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
         window.location = `http://${window.location.hostname}:${window.location.port}/start`;
     }
 
+
     // place username in top left of window
     document.querySelector('#username').innerText = localStorage['user'];
 
@@ -30,6 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelector('#logout').onclick = () => {
         // remove localstorage user
         delete localStorage['user'];
+        delete localStorage['chat_room'];
         // redirect back to login
         window.location = `http://${window.location.hostname}:${window.location.port}/start`;
     };
@@ -66,6 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 chat.onclick = () => {
                     chat_room = chat.innerText;
+                    localStorage.setItem('chat_room', chat_room);
                     document.querySelector('#chat-title').innerHTML = chat_room;
                     document.querySelector('#scroll-list-chat').innerText = '';
                     //   todo: here I need to be able to pull all the data from this chat into the list
@@ -98,9 +101,30 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
                 };
+
             });
         });
+
+
+        // check if the user was previously in a chat and return them to it todo: delete this local variable also on logout
+        if (localStorage['chat_room']) {
+            console.log('local chat does exist');
+            for (let elem of document.getElementsByClassName("list-group-item list-group-item-action list-group-item-primary d-flex justify-content-between align-items-center")) {
+                console.log('inside loop:');
+                console.log(elem.innerText);
+                if (elem.innerText === localStorage['chat_room']) {
+                    if (typeof elem.onclick == "function") {
+                        elem.onclick.apply(elem);
+                    }
+                }
+            }
+        } else {
+            console.log('local storage doesnt exist');
+        }
     };
+
+
+
 
     // Add data to send with request
     // const data = new FormData();
@@ -136,4 +160,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
     });
+
+
+
 });
+
