@@ -19,6 +19,7 @@ function printMessage(message) {
     const gif = document.createElement('img');
     gif.src = message['gif_url'];
     gif.style.width = '50%';
+    gif.style.maxWidth = '500px';
     gif.style.marginLeft = 'auto';
     gif.style.marginRight = 'auto';
 
@@ -26,8 +27,6 @@ function printMessage(message) {
     gif.style.marginBottom = '10px';
     document.querySelector('#scroll-list-chat').append(li);
     document.querySelector('#scroll-list-chat').append(gif);
-                var scroller = document.querySelector('#chat-middle');
-                scroller.scrollTop = scroller.scrollHeight;
 }
 
 

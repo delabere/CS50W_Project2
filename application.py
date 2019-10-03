@@ -5,7 +5,7 @@ import json
 import time
 import requests
 import random
-import os
+
 
 app = Flask(__name__)
 app.config["SECRET_KEY"] = os.getenv("SECRET_KEY")
