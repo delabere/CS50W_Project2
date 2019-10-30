@@ -1,3 +1,5 @@
 .flaskenv
 __pycache__
 .idea
+.vscode\
+data.json

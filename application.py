@@ -6,17 +6,12 @@ import time
 import requests
 import random
 
+chat_data = {"chat_rooms": [], "rooms": {}}
+
 
 app = Flask(__name__)
 app.config["SECRET_KEY"] = os.getenv("SECRET_KEY")
 socketio = SocketIO(app)
-
-# create data store if it doesn't exist
-if os.path.exists('data.json'):
-    pass
-else:
-    with open('data.json', mode='w+') as f:
-        json.dump({"chat_rooms": [], "rooms": {}}, f)
 
 
 def search_gif(text):
@@ -43,16 +38,14 @@ def index():
 
 @app.route("/get_rooms", methods=['POST'])
 def get_rooms():
-    with open('data.json', mode='r+') as f:
-        data = json.load(f)
+    data = chat_data
     return jsonify(data['chat_rooms'])
 
 
 @app.route("/get_history", methods=['POST'])
 def get_history():
     chat_room = request.form.get("chat_room")
-    with open('data.json', mode='r+') as f:
-        data = json.load(f)
+    data = chat_data
     return jsonify(data['rooms'][chat_room])
 
 
@@ -70,26 +63,17 @@ def vote(data):
               'chat_room': data['chat_room'], 'gif_url': gif_url}
     emit("all messages", record, broadcast=True)
     # write chat data to json object
-    with open('data.json', mode='r+') as f:
-        chat_data = json.load(f)
-        chat_data['rooms'][data['chat_room']].append(record)
-    with open('data.json', mode='w+') as f:
-        json.dump(chat_data, f)
+    chat_data['rooms'][data['chat_room']].append(record)
 
 
 @socketio.on("send room")
 def create_room(data):
     new_room = data['new_room']
     # write chat data to json object
-    with open('data.json', mode='r+') as f:
-        chat_data = json.load(f)
-        if data['new_room'] in chat_data['chat_rooms']:
-            return False
-        chat_data['chat_rooms'].append(new_room)
-        chat_data['rooms'][new_room] = []
-    with open('data.json', mode='w+') as f:
-        json.dump(chat_data, f)
-
+    if data['new_room'] in chat_data['chat_rooms']:
+        return False
+    chat_data['chat_rooms'].append(new_room)
+    chat_data['rooms'][new_room] = []
     emit("all rooms", data, broadcast=True)
 
 
