@@ -62,7 +62,7 @@ def vote(data):
     x = random.randint(0, len(words) - 1)  # randomly grabs a word from the sentence
     keyword = words[x]
     print(keyword)
-    if random.random() <= 0.35:
+    if random.random() <= 0.4:
         gif_url = search_gif(keyword)
     else:
         gif_url = None
