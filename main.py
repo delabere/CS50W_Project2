@@ -94,6 +94,6 @@ def create_room(data):
     emit("all rooms", data, broadcast=True)
 
 
-# if not run like this then SocketIO error is raised
+# # if not run like this then SocketIO error is raised
 if __name__ == "__main__":
     socketio.run(app)
