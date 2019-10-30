@@ -102,7 +102,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
                         //update the result div
                         // Populate last 100 messages todo: add limit to 100
-                        data.forEach((message) => {
+                        // data[message] = data[message].slice(Math.max(arr.length))
+                        data.slice(-100).forEach((message) => {
                             printMessage(message);
                         });
                         var scroller = document.querySelector('#chat-middle');
@@ -211,9 +212,11 @@ document.addEventListener('DOMContentLoaded', () => {
                     // Extract JSON data from request
                     const data = JSON.parse(request.responseText);
 
+                    // data[message] = data[message].slice(Math.max(arr.length))
+                    // data[message] = data[message].slice(Math.max(arr.length - 100, 1))
                     //update the result div
                     // Populate last 100 messages todo: add limit to 100
-                    data.forEach((message) => {
+                    data.slice(-100).forEach((message) => {
                         printMessage(message);
                     });
                     var scroller = document.querySelector('#chat-middle');

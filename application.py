@@ -80,7 +80,6 @@ def vote(data):
 @socketio.on("send room")
 def create_room(data):
     new_room = data['new_room']
-
     # write chat data to json object
     with open('data.json', mode='r+') as f:
         chat_data = json.load(f)
