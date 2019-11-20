@@ -1,5 +1,4 @@
 runtime: python37
-env: flex
 
 # Use a special gunicorn worker class to support websockets.
 entrypoint: gunicorn -b :$PORT -k flask_sockets.worker main:app
