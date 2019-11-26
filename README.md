@@ -1,6 +1,6 @@
-# Gif-Chat is a chat application running on a flask backend. It uses websockets and API calls to the backend to update the chat in real time amongst multiple users.
+# Gif-Chat
 
-This chat application inserts a contextual GIF inline with your messages, powered by the GIPHY API.
+Gif-Chat is a chat application running on a flask backend. It uses websockets and API calls to the backend to update the chat in real time amongst multiple users.
 
 I hope that it proves fun. https://gif-chat.appspot.com/
 
