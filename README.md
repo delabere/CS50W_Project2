@@ -23,6 +23,6 @@ to install all project requirements.
 
 # running the app
 run
-'''
+```
 python app.py
-'''
+```
