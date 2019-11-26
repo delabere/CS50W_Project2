@@ -2,7 +2,7 @@
 
 This chat application inserts a contextual GIF inline with your messages, powered by the GIPHY API.
 
-I hope that it proves fun.
+I hope that it proves fun. https://gif-chat.appspot.com/
 
 # application.py
 This file contains the view functions for login and chat pages
