@@ -4,7 +4,7 @@ This chat application inserts a contextual GIF inline with your messages, powere
 
 I hope that it proves fun. https://gif-chat.appspot.com/
 
-![Image description]('gif-chat.jpeg')
+![Image description](gif-chat.jpeg)
 
 # application.py
 This file contains the view functions for login and chat pages
