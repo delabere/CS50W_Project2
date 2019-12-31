@@ -2,8 +2,8 @@ version: '3'
 
 services:
   gifchat:
-    build: ./CS50W_Project2
+    build: ./gif_chat
     volumes:
-      - ./CS50W_Project2:/usr/src/app
+      - ./gif_chat:/usr/src/app
     ports:
       - 80:80
