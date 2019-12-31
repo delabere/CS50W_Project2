@@ -1,0 +1,9 @@
+version: '3'
+
+services:
+  gifchat:
+    build: ./CS50W_Project2
+    volumes:
+      - ./CS50W_Project2:/usr/src/app
+    ports:
+      - 80:80
