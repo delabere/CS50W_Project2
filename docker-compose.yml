@@ -6,4 +6,4 @@ services:
     volumes:
       - ./gif_chat:/usr/src/app
     ports:
-      - 90:80
+      - 80:80
