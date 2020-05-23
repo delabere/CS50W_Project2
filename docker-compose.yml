@@ -3,6 +3,7 @@ version: '3'
 services:
   gifchat:
     build: ./gif_chat
+    command: python application.py
     volumes:
       - ./gif_chat:/usr/src/app
     ports:
